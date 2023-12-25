@@ -1,0 +1,17 @@
+% +++
+% # LLMK は TOML で書かれている． # はコメントアウト．
+% latex = "lualatex"
+%
+% # bibtex を使う場合は下のコマンドのコメントアウトのための # を消す．
+% # bibtex = "pbibtex"
+% # sequence = [ "latex", "bibtex",  "latex", "latex" ]
+% # max_repeat = 7
+% +++
+%#! llmk handout.tex
+\documentclass[notheorems, aspectratio=169, 12pt, unicode, handout]{beamer}
+\input{mypre}
+\usepackage{docmute}
+\input{title}
+\begin{document}
+\input{slide}
+\end{document}

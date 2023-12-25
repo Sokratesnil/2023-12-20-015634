@@ -1,0 +1,41 @@
+% +++
+% # LLMK は TOML で書かれている． # はコメントアウト．
+% latex = "lualatex"
+%
+% # bibtex を使う場合は下のコマンドのコメントアウトのための # を消す．
+% # bibtex = "pbibtex"
+% # sequence = [ "latex", "bibtex",  "latex", "latex" ]
+% # max_repeat = 7
+% +++
+%#! llmk slide.tex
+\documentclass[notheorems, aspectratio=169, 12pt, tableusepdftitle=false]{beamer}
+\input{mypre}
+\input{title}
+\begin{document}
+
+\begin{frame}[plain]
+ \titlepage
+\end{frame}
+
+\begin{frame}{これはサンプル}
+ \begin{itemize}
+  \item \bfalert{この項目は配布資料に載る}
+  \item<handout:0> \greenalert{この項目は配布資料には載らない}
+  \item<2-> \alert{この項目は配布資料に載る(2)}
+  \item<2-|handout:0> \structure{この項目は配布資料には載らない(2)}
+ \end{itemize}
+\end{frame}
+
+\begin{frame}{サンプル}{問題}
+ \begin{alertblock}{問題}
+  とてもむずかしい問題
+ \end{alertblock}
+\end{frame}
+
+\begin{frame}<handout:0>{消えるサンプル}{答え}
+\begin{ans}
+ とてもむずかしい問題の答え
+\end{ans}
+\end{frame}
+
+\end{document}

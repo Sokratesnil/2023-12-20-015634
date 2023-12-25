@@ -1,0 +1,161 @@
+%Beamer%
+\usepackage{luatexja}% 日本語したい
+\renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に
+
+\setbeamertemplate{navigation symbols}{} % Navigation symbols いらない
+\usetheme{Madrid}
+\setbeamertemplate{footline}[frame number]
+\setbeamercolor{page number in head/foot}{fg=gray}
+
+\renewcommand{\baselinestretch}{1.6} 
+% \setstretch{1.6} % ページ全体の行間を設定
+
+%%% colour %%%
+% https://www.nig.ac.jp/color/gen/ を参考にした色のセット
+\definecolor{vermillion}{cmyk}{0,0.8,1,0}
+\definecolor{myblue}{cmyk}{1,0.5,0,0}
+\definecolor{blue-green}{cmyk}{0.97,0,0.75,0}
+\definecolor{myorange}{cmyk}{0,0.5,1,0}
+\definecolor{mymagenta}{cmyk}{0.1,0.7,0,0}
+\definecolor{myyellow}{cmyk}{0.1,0.05,0.9,0}
+\definecolor{skyblue}{cmyk}{0.8,0,0,0}
+
+\setbeamercolor{title}{fg=white,bg=myblue}
+\setbeamercolor{frametitle}{fg=white,bg=myblue}
+
+\setbeamercolor{block title}{fg=white,bg=myblue}
+\setbeamercolor{block title alerted}{fg=white,bg=vermillion}
+\setbeamercolor{block title example}{fg=white,bg=blue-green}
+
+\setbeamercolor{itemize item}{fg=myblue}
+\setbeamercolor{itemize subitem}{fg=myblue}
+\setbeamercolor{itemize subsubitem}{fg=myblue}
+
+\setbeamercolor{enumerate item}{fg=myblue}
+\setbeamercolor{enumerate subitem}{fg=myblue}
+\setbeamercolor{enumerate subsubitem}{fg=myblue}
+
+\setbeamercolor{description item}{fg=myblue}
+\setbeamercolor{description subitem}{fg=myblue}
+\setbeamercolor{description subsubitem}{fg=myblue}
+
+\setbeamercolor{palette primary}{fg=myblue}
+\setbeamercolor{palette secondary}{fg=myblue}
+\setbeamercolor{palette tertiary}{fg=myblue}
+\setbeamercolor{palette quaternary}{fg=myblue}
+
+\setbeamercolor{bibliography item}{fg=myblue}
+\setbeamercolor{bibliography entry author}{fg=myblue}
+\setbeamercolor{bibliography entry title}{fg=myblue}
+\setbeamercolor{bibliography entry location}{fg=black}
+\setbeamercolor{bibliography entry note}{fg=black}
+
+\setbeamercolor{alerted text}{fg=vermillion}
+\setbeamercolor{structure}{fg=myblue}
+
+\newcommand{\greenalert}[1]{\textcolor{blue-green}{#1}}
+\newcommand{\orangealert}[1]{\textcolor{myorange}{#1}}
+\newcommand{\magentaalert}[1]{\textcolor{mymagenta}{#1}}
+\newcommand{\skybluealert}[1]{\textcolor{skyblue}{#1}}
+\newcommand{\yellowalert}[1]{\textcolor{myyellow}{#1}}
+\newcommand{\whitetext}[1]{\textcolor{white}{#1}}
+\newcommand{\bfalert}[1]{\textbf{#1}}
+
+% Packages %
+\usepackage{graphicx}
+\usepackage{mathrsfs}
+\usepackage{mleftright}
+\usepackage{textcomp}
+\usepackage{url}
+
+%%% Packages for writing support %%%
+\usepackage[l2tabu, orthodox]{nag}
+
+%%% hyperref %%%
+% \hypersetup{
+%   colorlinks=true,
+%   citecolor=myblue,
+%   linkcolor=myblue,
+%   urlcolor=myblue,
+%  }
+
+\hypersetup{hidelinks}
+
+%%% theorems %%%
+\setbeamertemplate{theorems}[numbered]
+\newtheorem{theorem}{定理}
+\newtheorem{prop}[theorem]{命題}
+\newtheorem{cor}[theorem]{系}
+\newtheorem{lem}[theorem]{補題}
+\newtheorem*{question}{問題}
+
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{定義}
+
+\theoremstyle{example}
+\newtheorem{ex}[theorem]{例}
+\newtheorem*{rem}{注意}
+\newtheorem*{ans}{答え}
+
+\renewcommand{\proofname}{証明}
+
+%%% Japanese  %%%
+\usepackage{luatexja-fontspec}
+\setmainjfont{Yu Mincho} % \mcfamily
+\setsansjfont{Yu Gothic} % \gtfamily
+\usepackage{pxrubrica}
+
+\begingroup
+\catcode`\,=\active
+\def\@x@{\def,{\normalcomma\hskip0.25em}}
+\expandafter\endgroup\@x@%
+\mathcode`\,="8000
+\def\normalcomma{\mathchar"613B}
+
+\thinmuskip=3mu
+\medmuskip=4mu plus 1mu minus 2mu
+\thickmuskip=5mu plus 2.5mu
+
+%%% emph font %%%
+\DeclareEmphSequence{\gtfamily\itshape, \normalfont\gtfamily\sffamily\bfseries, \normalfont\itshape} % emph のフォント
+
+%%%%% フォントの指定 %%%%%
+\usepackage{luatexja-fontspec}
+\setmainjfont[
+Script=Default,
+YokoFeatures={JFM=prop},
+CharacterWidth=Proportional,
+Kerning=On,
+BoldFont={Yu Gothic Bold} % 太字
+]{Yu Mincho Regular}%
+
+% New commands %
+%%% Mathematics %%%
+\newcommand{\mathsetintension}[2]{%
+\mleft\{ #1 \mleft| #2 \mright. \mright\}%
+}
+\newcommand{\mathsetextension}[1]{%
+\mleft\{ #1 \mright\}%
+}
+\newcommand{\mathvect}[1]{\mathbf{#1}}
+\newcommand{\mathof}[2]{\mathop{#1}\mleft(#2\mright)}
+
+%%%%% Symbols of sets %%%%%
+\newcommand{\mathnat}{\mathbb{N}}
+\newcommand{\mathnatpos}{\mathbb{N}_{> 0}}
+\newcommand{\mathOrd}{\mathbf{Ord}}
+
+% Greek alphabets %
+\newcommand{\Alpha}{\mathrm{A}}
+\newcommand{\Beta}{\mathrm{B}}
+\newcommand{\Epsilon}{\mathrm{E}}
+\newcommand{\Zeta}{\mathrm{Z}}
+\newcommand{\Eta}{\mathrm{H}}
+\newcommand{\Iota}{\mathrm{I}}
+\newcommand{\Kappa}{\mathrm{K}}
+\newcommand{\Omicron}{\mathrm{O}}
+\newcommand{\Tau}{\mathrm{T}}
+
+% Other symbols %
+\newcommand{\mathrelbar}{\mathrel{|}}
+\newcommand{\imply}{\ensuremath{\Rightarrow}}
