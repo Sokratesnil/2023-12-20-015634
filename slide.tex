@@ -1,3 +1,4 @@
+% llmk と make を組み合わせているが，単に lualatex でタイプセットしても良い．
 % +++
 % # LLMK は TOML で書かれている． # はコメントアウト．
 % latex = "lualatex"
@@ -21,8 +22,10 @@
  \begin{itemize}
   \item \bfalert{この項目は配布資料に載る}
   \item<handout:0> \greenalert{この項目は配布資料には載らない}
+       %<handout:0> を指定すると handout には表示されなくなる．onslide コマンドに対しても使える．
   \item<2-> \alert{この項目は配布資料に載る(2)}
   \item<2-|handout:0> \structure{この項目は配布資料には載らない(2)}
+       % このように handout:0 とアニメーションを組み合わせることもできる．
  \end{itemize}
 \end{frame}
 

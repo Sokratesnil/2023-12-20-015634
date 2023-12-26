@@ -1,5 +1,7 @@
+%%%%% LuaLaTeX に依存したパッケージを多数使っている．それ以外のエンジンを使っている人は注意．
+
 %Beamer%
-\usepackage{luatexja}% 日本語したい
+\usepackage{luatexja}% 日本語したい(LuaLaTeX 依存)
 \renewcommand{\kanjifamilydefault}{\gtdefault}% 既定をゴシック体に
 
 \setbeamertemplate{navigation symbols}{} % Navigation symbols いらない
@@ -8,10 +10,10 @@
 \setbeamercolor{page number in head/foot}{fg=gray}
 
 \renewcommand{\baselinestretch}{1.6} 
-% \setstretch{1.6} % ページ全体の行間を設定
+% ページ全体の行間を設定
 
 %%% colour %%%
-% https://www.nig.ac.jp/color/gen/ を参考にした色のセット
+% https://www.nig.ac.jp/color/gen/ を参考にした色のセット．色覚特性に配慮．
 \definecolor{vermillion}{cmyk}{0,0.8,1,0}
 \definecolor{myblue}{cmyk}{1,0.5,0,0}
 \definecolor{blue-green}{cmyk}{0.97,0,0.75,0}
@@ -100,11 +102,12 @@
 \renewcommand{\proofname}{証明}
 
 %%% Japanese  %%%
-\usepackage{luatexja-fontspec}
+\usepackage{luatexja-fontspec} % フォント周りの設定は LuaLaTeX 依存
 \setmainjfont{Yu Mincho} % \mcfamily
 \setsansjfont{Yu Gothic} % \gtfamily
 \usepackage{pxrubrica}
 
+% 数式内のコンマ周りの空きを制御．
 \begingroup
 \catcode`\,=\active
 \def\@x@{\def,{\normalcomma\hskip0.25em}}
@@ -120,7 +123,7 @@
 \DeclareEmphSequence{\gtfamily\itshape, \normalfont\gtfamily\sffamily\bfseries, \normalfont\itshape} % emph のフォント
 
 %%%%% フォントの指定 %%%%%
-\usepackage{luatexja-fontspec}
+\usepackage{luatexja-fontspec} % フォント周りの設定は LuaLaTeX 依存
 \setmainjfont[
 Script=Default,
 YokoFeatures={JFM=prop},
@@ -143,7 +146,6 @@ BoldFont={Yu Gothic Bold} % 太字
 %%%%% Symbols of sets %%%%%
 \newcommand{\mathnat}{\mathbb{N}}
 \newcommand{\mathnatpos}{\mathbb{N}_{> 0}}
-\newcommand{\mathOrd}{\mathbf{Ord}}
 
 % Greek alphabets %
 \newcommand{\Alpha}{\mathrm{A}}
@@ -158,4 +160,3 @@ BoldFont={Yu Gothic Bold} % 太字
 
 % Other symbols %
 \newcommand{\mathrelbar}{\mathrel{|}}
-\newcommand{\imply}{\ensuremath{\Rightarrow}}
